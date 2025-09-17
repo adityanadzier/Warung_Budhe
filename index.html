@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Warung Budhe</title>
+  <meta name="description" content="Website resmi Warung Budhe – menu makanan, harga, dan kontak." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#efe9d9;
+      --ink:#2e5a49;
+      --ink-2:#3e7a64;
+      --card:#ffffff;
+      --shadow:0 8px 30px rgba(0,0,0,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--ink);}
+    body{background:linear-gradient(180deg,var(--bg),#f7f4eb);}    
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(239,233,217,.85);backdrop-filter:saturate(150%) blur(6px);
+      border-bottom:1px solid rgba(46,90,73,.08)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo{width:42px;height:42px;border-radius:12px;background:var(--ink);display:grid;place-items:center;color:#fff}
+    .pill{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(46,90,73,.15);padding:8px 12px;border-radius:99px;background:#fff;box-shadow:var(--shadow)}
+    .nav a{padding:10px 14px;border-radius:10px}
+    .nav a:hover{background:rgba(46,90,73,.08)}
+
+    .hero{padding:64px 24px 24px}
+    .hero-card{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:relative}
+    .hero-left{padding:36px;z-index:2}
+    .title{font-weight:800;letter-spacing:.2px;font-size:32px;margin:0 0 12px}
+    .subtitle{opacity:.85;margin:0 0 18px;font-size:1.05rem;line-height:1.6}
+
+    .hero-right{background:#f6f3ea;position:relative;overflow:hidden;min-height:260px}
+    .hero-right img{width:100%;height:100%;object-fit:cover;border-radius:0 var(--radius) var(--radius) 0;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.7s ease-in-out;}
+    .hero-right img.active{opacity:1;}
+    .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;padding:10px;border-radius:50%;cursor:pointer;z-index:3}
+    .arrow.left{left:10px}
+    .arrow.right{right:10px}
+    .dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+    .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.15)}
+    .dot.active{background:#fff}
+
+    .badge{display:inline-block;background:#e8f2ee;color:var(--ink-2);padding:6px 10px;border-radius:999px;font-weight:600;font-size:.9rem}
+
+    .menu-section{padding:36px 0 10px}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .section-title{font-size:26px;font-weight:800;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    @media(min-width:768px){.card{grid-column:span 6}}
+    @media(min-width:1024px){.card{grid-column:span 4}}
+    .list{display:grid;gap:10px;margin-top:8px}
+    .item{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:10px 12px;border:1px dashed rgba(46,90,73,.18);border-radius:12px;background:linear-gradient(0deg,#fff, #fff8)}
+    .name{font-weight:600}
+    .price{font-weight:800}
+    .dotline{flex:1;border-bottom:1px dashed rgba(46,90,73,.25);margin:0 10px}
+
+    .divline{height:1px;background:linear-gradient(90deg,transparent,rgba(46,90,73,.25),transparent);margin:28px 0}
+
+    .footer{margin-top:40px;background:#1f3c33;color:#e7efe9}
+    .footer .container{display:grid;gap:18px;padding:28px}
+    .foot-brand{font-weight:800;font-size:20px;display:flex;align-items:center;gap:10px}
+    .muted{opacity:.75}
+    .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:12px;margin-top:8px;font-size:.92rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">WB</div>
+        <div>
+          <div style="font-weight:800;line-height:1">Warung Budhe</div>
+          <div class="muted" style="font-size:.9rem">Rumah makan sederhana & nikmat</div>
+        </div>
+      </div>
+      <nav class="pill">
+        <a href="#menu">Menu</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#pesan" class="btn primary" style="padding:8px 12px">Pesan Sekarang</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="hero-card">
+      <div class="hero-left">
+        <span class="badge">Selamat datang</span>
+        <h1 class="title">Selamat datang di Warung Budhe! 🌿</h1>
+        <p class="subtitle">
+          Tempat makan sederhana dengan cita rasa rumahan yang bikin kangen. Kami siap menyajikan berbagai menu penyet, gorengan, aneka sambal, hingga minuman segar dengan harga ramah kantong. 
+          Duduk santai, nikmati hidangan, dan rasakan kehangatan khas <strong>Warung Budhe</strong>.
+        </p>
+      </div>
+      <div class="hero-right">
+        <button class="arrow left" type="button" aria-label="Sebelumnya">&#10094;</button>
+        <button class="arrow right" type="button" aria-label="Berikutnya">&#10095;</button>
+        <div class="dots" aria-hidden="true"></div>
+        <img src="https://tse2.mm.bing.net/th/id/OIP.R_vXTF6n8i8AUKarknCsswHaHa?pid=Api" alt="Ayam Penyet" class="active"/>
+        <img src="https://tse3.mm.bing.net/th/id/OIP.UGFqHzMuYJw5sKsW2gIZGwHaFa?pid=Api" alt="Nasi Ayam Penyet"/>
+        <img src="https://tse1.mm.bing.net/th/id/OIP.R0TlihLhTg0P21MIqaWhWAHaHa?pid=Api" alt="Ayam Bakar Penyet"/>
+        <img src="https://tse3.mm.bing.net/th/id/OIP.BFEeX3DIwvVyB-e4CC_lLQHaHa?pid=Api" alt="Lele Penyet"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="container menu-section">
+    <div class="section-head">
+      <h2 class="section-title">Daftar Menu</h2>
+    </div>
+    <div id="menuGrid" class="grid" aria-live="polite"></div>
+  </section>
+
+  <div class="container divline"></div>
+
+  <section id="kontak" class="container" style="padding: 0 0 36px">
+    <div class="grid">
+      <article class="card" style="grid-column:span 12">
+        <h3 style="margin:0 0 10px;font-weight:800">Kontak & Lokasi</h3>
+        <p class="muted" style="margin:0 0 12px">Silakan hubungi kami untuk pesan antar atau pre‑order.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+          <a id="pesan" class="btn primary" href="https://wa.me/6281213895080?text=Halo%20Warung%20Budhe%2C%20saya%20ingin%20pesan." target="_blank" rel="noopener">Pesan via WhatsApp</a>
+          <a class="btn" href="https://maps.app.goo.gl/gYiaDqjdQkyGCutH7?g_st=ipc" target="_blank" rel="noopener">📍 Lihat Lokasi di Google Maps</a>
+        </div>
+        <div class="muted" style="font-size:.96rem;line-height:1.6">
+          Alamat: <strong>Warung Budhe</strong> — cek rute langsung melalui tombol Google Maps di atas.
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="foot-brand"><span class="logo" style="background:#e7efe9;color:#1f3c33">WB</span> Warung Budhe</div>
+      <div class="muted">© <span id="year"></span> Warung Budhe. Semua hak dilindungi.</div>
+      <div class="copy">Website satu‑file – mudah di‑hosting di Netlify/Vercel atau dibuka langsung.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Build menu
+    const MENU = [
+      { kategori:'MAKANAN', items:[
+        ['Ayam Penyet','15K'],['Lele Penyet','15K'],['Kulit Cabe Garam','15K'],
+        ['Tahu Goreng','12K'],['Tempe Goreng','12K'],['Terong Goreng','5K'],
+        ['Jengkol/Pete Goreng','5K'],['Intel (Indomie Telur)','10K'],['Indomie','11K'],
+        ['Indomie Telur Kornet','13K']
+      ]},
+      { kategori:'NASI', items:[['Nasi Uduk','7K'],['Nasi Putih','5K']]},
+      { kategori:'SAMBAL', items:[['Sambal Ijo','4K'],['Sambal Dadak','4K'],['Sambal Terasi','4K']]},
+      { kategori:'MINUMAN', items:[
+        ['Teh (Panas/Es)','4K/5K'],['Indocafe/Kapal Api (Panas/Es)','4K/6K'],
+        ['GoodDay Cappuccino (Panas/Es)','5K/6K'],['Es Jeruk','6K'],['Susu','5K']
+      ]}
+    ];
+    const grid = document.getElementById('menuGrid');
+    MENU.forEach(section=>{
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `<h3 style="margin:0 0 10px;font-weight:800;">${section.kategori}</h3><div class="list" role="list"></div>`;
+      const list = card.querySelector('.list');
+      section.items.forEach(([name,price])=>{
+        const row = document.createElement('div');
+        row.className = 'item';
+        row.setAttribute('role','listitem');
+        row.innerHTML = `<span class="name">${name}</span><span class="dotline" aria-hidden="true"></span><span class="price">${price}</span>`;
+        list.appendChild(row);
+      });
+      grid.appendChild(card);
+    });
+
+    // Slideshow controls (robust)
+    const container = document.querySelector('.hero-right');
+    const slides = container.querySelectorAll('img');
+    const leftBtn = container.querySelector('.arrow.left');
+    const rightBtn = container.querySelector('.arrow.right');
+    const dotsWrap = container.querySelector('.dots');
+    let idx = 0, timer = null;
+
+    // create dots
+    slides.forEach((_,i)=>{
+      const d = document.createElement('span');
+      d.className = 'dot' + (i===0 ? ' active' : '');
+      d.addEventListener('click', ()=>show(i, true));
+      dotsWrap.appendChild(d);
+    });
+    const dots = dotsWrap.querySelectorAll('.dot');
+
+    function show(i, pause=false){
+      slides[idx].classList.remove('active');
+      dots[idx].classList.remove('active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      dots[idx].classList.add('active');
+      if(pause){ resetTimer(); }
+    }
+    function next(){ show(idx+1); }
+    function prev(){ show(idx-1); }
+    function resetTimer(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(next, 4000);
+    }
+    leftBtn.addEventListener('click', ()=>show(idx-1, true));
+    rightBtn.addEventListener('click', ()=>show(idx+1, true));
+    resetTimer();
+  </script>
+</body>
+</html>
